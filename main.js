@@ -4,7 +4,7 @@ const divMore = document.querySelector(".showMore-div");
 const btnBooking = document.querySelector(".btn-booking");
 const divBooking = document.querySelector(".booking-menu");
 
-const showMore = ()=>{
+function showMore(){
     divMore.classList.toggle("slideIn");
     btnMore.classList.toggle("slideIn");
     btnBooking.classList.add("disappear");   
@@ -27,7 +27,7 @@ const showMore = ()=>{
     }
     });
 
-const showBookingMenu = () =>{
+function showBookingMenu(){
     btnBooking.classList.toggle("slideIn");
     divBooking.classList.toggle("slideIn");
 }
@@ -38,17 +38,17 @@ const showBookingMenu = () =>{
 const clickMess = document.querySelector(".element-fixed .leave-message");
 const divSupport =document.querySelector(".element-fixed .support");
 
-const showSupport = () =>{
+function showSupport(){
     divSupport.classList.add("show");
 }
 
-const minimize=()=>{
+function minimize(){
     divSupport.classList.remove("show");
 }
 // End Animation show Leave a message
 
 // Start show input in support
-const showInput=()=>{
+function showInput(){
     const moreInput = document.querySelector(".more-input");
     moreInput.innerHTML = '<input class="input-email" required placeholder="Email"></input>'
     const inputEmail = document.querySelector(".input-email");
@@ -65,7 +65,7 @@ const showInput=()=>{
     inputName.placeholder = "Name"
 
 }
-const Blank=()=>{
+function Blank(){
     const textArea = document.querySelector(".element-fixed .support__form textarea")
     const warn = document.querySelector(".element-fixed .support__textarea .warn")
     
@@ -81,3 +81,62 @@ const Blank=()=>{
 
 // End show input in support
 
+// start slider img
+let img1 = document.querySelectorAll(".content__about-hotel-items .picture img")[0];
+let img2 = document.querySelectorAll(".content__about-hotel-items .picture img")[1];
+let img3 = document.querySelectorAll(".content__about-hotel-items .picture img")[2];
+let images1 = ['luxury-01-1.jpg', 'luxury-02-1.jpg', 'luxury-03-1.jpg', 'luxury-04-1.jpg']
+let images2 = ['Food-and-drink-1.jpg', 'Food-and-drink-2.jpg', 'Food-and-drink-3.jpg', 'Food-and-drink-4.jpg']
+let images3 = ['occasions-1.jpg', 'occasions-2.jpg', 'occasions-3.jpg', 'occasions-4.jpg',]
+var i=0, x=0, y=0;
+
+function prev1(){
+    if (i<=0)
+        i = images1.length;
+    i--;
+    return setImg1();
+}
+function next1(){
+    if (i==(images1.length-1))
+        i=-1;
+    i++;
+    return setImg1();
+}
+function setImg1(){
+    return img1.setAttribute('src', './assets/img/room/'+images1[i]);
+}
+
+function prev2(){
+    if (i<=0)
+        i = images2.length;
+    i--;
+    return setImg2();
+}
+function next2(){
+    if (i==(images2.length-1))
+        i=-1;
+    i++;
+    return setImg2();
+}
+function setImg2(){
+    return img2.setAttribute('src', './assets/img/food/'+images2[i]);
+}
+
+function prev3(){
+    if (i<=0)
+        i = images3.length;
+    i--;
+    return setImg3();
+}
+function next3(){
+    if (i==(images3.length-1))
+        i=-1;
+    i++;
+    return setImg3();
+}
+function setImg3(){
+    return img3.setAttribute('src', './assets/img/oc/'+images3[i]);
+}
+
+
+// end slider img
