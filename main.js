@@ -82,61 +82,62 @@ function Blank(){
 // End show input in support
 
 // start slider img
-let img1 = document.querySelectorAll(".content__about-hotel-items .picture img")[0];
-let img2 = document.querySelectorAll(".content__about-hotel-items .picture img")[1];
-let img3 = document.querySelectorAll(".content__about-hotel-items .picture img")[2];
+let img = document.querySelectorAll(".content__about-hotel-items .picture img");
 let images1 = ['luxury-01-1.jpg', 'luxury-02-1.jpg', 'luxury-03-1.jpg', 'luxury-04-1.jpg']
 let images2 = ['Food-and-drink-1.jpg', 'Food-and-drink-2.jpg', 'Food-and-drink-3.jpg', 'Food-and-drink-4.jpg']
 let images3 = ['occasions-1.jpg', 'occasions-2.jpg', 'occasions-3.jpg', 'occasions-4.jpg',]
-var i=0, x=0, y=0;
+var i=0;
 
-function prev1(){
-    if (i<=0)
-        i = images1.length;
-    i--;
-    return setImg1();
+function prev(className){
+    if(className.includes("prev-1") ){
+        if (i<=0)
+            i = images1.length;
+        i--;
+        return setImg(1);
+    }
+    if(className.includes("prev-2") ){
+        if (i<=0)
+            i = images2.length;
+        i--;
+        return setImg(2);
+    }
+    if(className.includes("prev-3") ){
+        if (i<=0)
+            i = images3.length;
+        i--;
+        return setImg(3);
+    }
+
 }
-function next1(){
-    if (i==(images1.length-1))
-        i=-1;
-    i++;
-    return setImg1();
+function next(className){
+    if(className.includes("next-1") ){
+        if (i==(images1.length-1))
+            i=-1;
+        i++;
+        return setImg(1);
+    }
+    if(className.includes("next-2") ){
+        if (i==(images2.length-1))
+            i=-1;
+        i++;
+        return setImg(2);
+    }
+    if(className.includes("next-3") ){
+        if (i==(images3.length-1))
+            i=-1;
+        i++;
+        return setImg(3);
+    }
 }
-function setImg1(){
-    return img1.setAttribute('src', './assets/img/room/'+images1[i]);
+function setImg(a){
+    if(a==1)
+        return img[0].setAttribute('src', './assets/img/room/'+images1[i]);
+    if(a==2)
+        return img[1].setAttribute('src', './assets/img/food/'+images2[i]);
+    if(a==3)
+        return img[2].setAttribute('src', './assets/img/oc/'+images3[i]);
 }
 
-function prev2(){
-    if (i<=0)
-        i = images2.length;
-    i--;
-    return setImg2();
-}
-function next2(){
-    if (i==(images2.length-1))
-        i=-1;
-    i++;
-    return setImg2();
-}
-function setImg2(){
-    return img2.setAttribute('src', './assets/img/food/'+images2[i]);
-}
-
-function prev3(){
-    if (i<=0)
-        i = images3.length;
-    i--;
-    return setImg3();
-}
-function next3(){
-    if (i==(images3.length-1))
-        i=-1;
-    i++;
-    return setImg3();
-}
-function setImg3(){
-    return img3.setAttribute('src', './assets/img/oc/'+images3[i]);
-}
 
 
 // end slider img
